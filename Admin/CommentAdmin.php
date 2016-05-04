@@ -32,18 +32,15 @@ class CommentAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('recordModel')
-            ->add('recordId')
+            ->add('record_model')
+            ->add('record_id')
             ->add('authorName')
-            ->add('authorEmail')
-            ->add('authorWebsite')
+            ->add('email')
+            ->add('website')
             ->add('body')
-            ->add('editionReason')
             ->add('state')
-            ->add('created_at')
-            ->add('updated_at')
-            ->add('link')
-            ->add('isSubscribe')
+            ->add('createdAt')
+            ->add('is_subscribe')
         ;
     }
 
@@ -54,18 +51,13 @@ class CommentAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('recordModel')
-            ->add('recordId')
             ->add('authorName')
-            ->add('authorEmail')
-            ->add('authorWebsite')
+            ->add('email')
+            ->add('website')
             ->add('body')
-            ->add('editionReason')
             ->add('status')
-            ->add('created_at')
-            ->add('updated_at')
-            ->add('link')
-            ->add('isSubscribe')
+            ->add('createdAt')
+            ->add('is_subscribe')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -83,18 +75,15 @@ class CommentAdmin extends Admin
     {
         $formMapper
             ->add('id')
-            ->add('recordModel')
-            ->add('recordId')
+            ->add('record_model')
+            ->add('record_id')
             ->add('authorName')
-            ->add('authorEmail')
-            ->add('authorWebsite')
+            ->add('email')
+            ->add('website')
             ->add('body')
-            ->add('editionReason')
             ->add('status')
-            ->add('created_at')
-            ->add('updated_at')
-            ->add('link')
-            ->add('isSubscribe')
+            ->add('createdAt')
+            ->add('is_subscribe')
         ;
     }
 
@@ -105,18 +94,15 @@ class CommentAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('recordModel')
-            ->add('recordId')
+            ->add('record_model')
+            ->add('record_id')
             ->add('authorName')
-            ->add('authorEmail')
-            ->add('authorWebsite')
+            ->add('email')
+            ->add('website')
             ->add('body')
-            ->add('editionReason')
             ->add('status')
-            ->add('created_at')
-            ->add('updated_at')
-            ->add('link')
-            ->add('isSubscribe')
+            ->add('createdAt')
+            ->add('is_subscribe')
         ;
     }
 

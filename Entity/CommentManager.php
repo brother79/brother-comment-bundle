@@ -163,7 +163,7 @@ class CommentManager extends BaseEntityManager implements CommentManagerInterfac
     {
         return $this->getRepository()->createQueryBuilder('c')
 //            ->andWhere('c.status=:status')->setParameter('status', self::STATUS_CREATED)
-//            ->orderBy('c.created_at', 'desc')
+            ->orderBy('c.createdAt', 'desc')
             ->setMaxResults($count)
             ->getQuery()
             ->useQueryCache(true)

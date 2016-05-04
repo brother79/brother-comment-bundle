@@ -90,20 +90,6 @@ interface CommentInterface
     public function getCreatedAt();
 
     /**
-     * Set updated_at.
-     *
-     * @param \DateTime $updatedAt
-     */
-    public function setUpdatedAt(\DateTime $updatedAt = null);
-
-    /**
-     * Get updated_at.
-     *
-     * @return \DateTime $updatedAt
-     */
-    public function getUpdatedAt();
-
-    /**
      * Get text version of comment status.
      *
      * @return string|null

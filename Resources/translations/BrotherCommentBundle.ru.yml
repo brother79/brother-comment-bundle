@@ -1,0 +1,47 @@
+brother.admin.group.comment:  Комментарии
+Comment:                      Комментарии
+list.label_id: ИД
+list.label_author_name: Автор
+list.label_author_email: Email
+list.label_author_website: Вебсайт
+list.label_body: Сообщение
+list.label_status: Статус
+list.label_created_at: Создан
+list.label_updated_at: Изменён
+list.label_link: Ссылка
+list.label_is_subscribe: Подписка
+list.label__action: Действие
+filter.label_id: ИД
+filter.label_record_model: Модель
+filter.label_record_id: ИД объекта
+filter.label_author_name: Автор
+filter.label_author_email: E-Mail
+filter.label_author_website: Вебсайт
+filter.label_body: Сообщение
+filter.label_state: Статус
+filter.label_created_at: Создан
+filter.label_updated_at: Изменён
+filter.label_link: Ссылка
+filter.label_is_subscribe: Подписка
+breadcrumb.link_comment_list: Комментарии
+brother.admin.group.comment: Комментарии
+Comment: Комментарии
+Open Comment: Открытые комментарии
+post_is_public: Публичный
+archive_author: Автор
+view_all_posts: Все новости
+label_comment_invalid: Заблокирован
+label_comment_valid: Разрешён
+view_all_comments: Все комментарии
+comments: Комментарии
+posts: Новости
+form.label_id: ИД
+form.label_record_model: Модель
+form.label_record_id: ИД объекта
+form.label_author_name: Автор
+form.label_email: E-Mail
+form.label_website: Вебсайт
+form.label_body: Сообщение
+form.label_status: Статус
+form.label_created_at: Создан
+form.label_is_subscribe: Подписка
