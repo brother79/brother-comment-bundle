@@ -23,12 +23,12 @@ file that was distributed with this source code.
         <span class="label">{{ object.getStatusCode() }}</span>
     {% endif %}
 
-    {{ object|render_list_element(admin.list['name']) }} -
-    {{ object|render_list_element(admin.list['url']) }} -
-    {{ object|render_list_element(admin.list['email']) }} <br />
+    {{ object|render_list_element(admin.list['authorName']) }} -
+    {#{{ object|render_list_element(admin.list['website']) }} -#}
+    {#{{ object|render_list_element(admin.list['email']) }} <br />#}
 
     <small>
-        {{ object|render_list_element(admin.list['message']) }}
+        {{ object|render_list_element(admin.list['body']) }}
     </small>
 
 {% endblock %}

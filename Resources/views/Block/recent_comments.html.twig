@@ -29,11 +29,11 @@ file that was distributed with this source code.
                     {% if context.getSetting('mode') == 'admin' and admin_pool is defined %}
                         <a class="list-group-item" href="{{ admin_pool.getAdminByAdminCode('sonata.news.admin.comment').generateUrl('edit', { 'id': comment.id }) }}">
                             <span class="label label-{{ comment|sonata_status_class }}">
-                                {% if comment.status == constant('Sonata\\NewsBundle\\Model\\CommentInterface::STATUS_INVALID') %}
+                                {% if comment.status == constant('Brother\\CommentBundle\\Model\\CommentInterface::STATUS_INVALID') %}
                                     {{ 'label_comment_invalid'|trans({}, 'BrotherCommentBundle') }}
-                                {% elseif comment.status == constant('Sonata\\NewsBundle\\Model\\CommentInterface::STATUS_VALID') %}
+                                {% elseif comment.status == constant('Brother\\CommentBundle\\Model\\CommentInterface::STATUS_VALID') %}
                                     {{ 'label_comment_valid'|trans({}, 'BrotherCommentBundle') }}
-                                {% elseif comment.status == constant('Sonata\\NewsBundle\\Model\\CommentInterface::STATUS_MODERATE') %}
+                                {% elseif comment.status == constant('Brother\\CommentBundle\\Model\\CommentInterface::STATUS_MODERATE') %}
                                     {{ 'label_comment_moderate'|trans({}, 'BrotherCommentBundle') }}
                                 {% else %}
                                     {{ 'label_unknown_status'|trans({}, 'BrotherCommentBundle') }}

@@ -1,0 +1,12 @@
+services:
+    brother_comment.admin.comment:
+        class: Brother\CommentBundle\Admin\CommentAdmin
+        arguments: [~, Brother\CommentBundle\Entity\Comment, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Comment}
+
+    brother_comment.admin.comment_report:
+        class: Brother\CommentBundle\Admin\CommentReportAdmin
+        arguments: [~, Brother\CommentBundle\Entity\CommentReport, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: CommentReport}

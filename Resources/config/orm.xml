@@ -16,8 +16,10 @@
         </service>
 
         <service id="sonata.news.manager.post" class="%sonata.news.manager.post.class%">
-            <argument>%sonata.news.manager.post.entity%</argument>
-            <argument type="service" id="doctrine" />
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="brother_news.entity_manager" />
+            <argument>%brother_news.model.entry.class%</argument>
+            <!--<argument type="service" id="doctrine" />-->
         </service>
 
     </services>

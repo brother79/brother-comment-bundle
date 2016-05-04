@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Sonata ~ NewsBundle'
+project = u'Sonata ~ CommentBundle'
 copyright = u'2010-2015, Thomas Rabaix'
 
 # The version info for the project you're documenting, acts as replacement for

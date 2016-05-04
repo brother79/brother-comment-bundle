@@ -17,6 +17,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
@@ -25,7 +26,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @author      Thomas Rabaix <thomas.rabaix@sonata-project.org>
  */
-class SonataNewsExtension extends Extension
+class BrotherCommentExtension extends Extension
 {
     /**
      * @throws \InvalidArgumentException
@@ -39,6 +40,10 @@ class SonataNewsExtension extends Extension
         $configuration = new Configuration();
         $config = $processor->processConfiguration($configuration, $configs);
         $bundles = $container->getParameter('kernel.bundles');
+
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.yml');
+
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('orm.xml');

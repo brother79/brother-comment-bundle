@@ -11,13 +11,9 @@
 
 namespace Brother\CommentBundle\Controller\Api;
 
-use Application\Brother\CommentBundle\Entity\Post;
-use FOS\RestBundle\Controller\Annotations\QueryParam;
-use FOS\RestBundle\Controller\Annotations\Route;
 use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use JMS\Serializer\SerializationContext;
-use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sonata\DatagridBundle\Pager\PagerInterface;
 use Sonata\FormatterBundle\Formatter\Pool as FormatterPool;
 use Brother\CommentBundle\Mailer\MailerInterface;
@@ -29,7 +25,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-
+use Brother\NewsBundle\Entity\Entry;
 /**
  * Class PostController.
  *
@@ -136,7 +132,7 @@ class PostController
      *
      * @param int $id A post identifier
      *
-     * @return Post
+     * @return Entry
      */
     public function getPostAction($id)
     {
@@ -159,7 +155,7 @@ class PostController
      *
      * @param Request $request A Symfony request
      *
-     * @return Post
+     * @return Entry
      *
      * @throws NotFoundHttpException
      */
@@ -186,10 +182,10 @@ class PostController
      *
      * @Route(requirements={"_format"="json|xml"})
      *
-     * @param int     $id      A Post identifier
+     * @param int     $id      A Entry identifier
      * @param Request $request A Symfony request
      *
-     * @return Post
+     * @return Entry
      *
      * @throws NotFoundHttpException
      */
@@ -214,7 +210,7 @@ class PostController
      *
      * @Route(requirements={"_format"="json|xml"})
      *
-     * @param int $id A Post identifier
+     * @param int $id A Entry identifier
      *
      * @return View
      *
@@ -238,7 +234,7 @@ class PostController
      *
      * @ApiDoc(
      *  requirements={
-     *      {"name"="id", "dataType"="integer", "requirement"="\d+", "description"="Post id"}
+     *      {"name"="id", "dataType"="integer", "requirement"="\d+", "description"="Entry id"}
      *  },
      *  output={"class"="Sonata\DatagridBundle\Pager\PagerInterface", "groups"={"sonata_api_read"}},
      *  statusCodes={
@@ -306,7 +302,7 @@ class PostController
         $post = $this->getPost($id);
 
         if (!$post->isCommentable()) {
-            throw new HttpException(403, sprintf('Post (%d) not commentable', $id));
+            throw new HttpException(403, sprintf('Entry (%d) not commentable', $id));
         }
 
         $comment = $this->commentManager->create();
@@ -371,7 +367,7 @@ class PostController
         $post = $this->getPost($postId);
 
         if (!$post->isCommentable()) {
-            throw new HttpException(403, sprintf('Post (%d) not commentable', $postId));
+            throw new HttpException(403, sprintf('Entry (%d) not commentable', $postId));
         }
 
         $comment = $this->commentManager->find($commentId);
@@ -440,9 +436,9 @@ class PostController
     /**
      * Retrieves post with id $id or throws an exception if it doesn't exist.
      *
-     * @param int $id A Post identifier
+     * @param int $id A Entry identifier
      *
-     * @return Post
+     * @return Entry
      *
      * @throws NotFoundHttpException
      */
@@ -451,7 +447,7 @@ class PostController
         $post = $this->postManager->find($id);
 
         if (null === $post) {
-            throw new NotFoundHttpException(sprintf('Post (%d) not found', $id));
+            throw new NotFoundHttpException(sprintf('Entry (%d) not found', $id));
         }
 
         return $post;

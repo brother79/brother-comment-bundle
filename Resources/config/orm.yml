@@ -1,0 +1,20 @@
+parameters:
+    brother_comment.model.comment.class: Brother\CommentBundle\Entity\Comment
+    brother_comment.model.report.class: Brother\CommentBundle\Entity\CommentReport
+    brother_comment.manager.comment.class: Brother\CommentBundle\Entity\CommentManager
+    brother_comment.manager.report.class: Brother\CommentBundle\Entity\CommentReportManager
+services:
+    brother_comment.entity_manager:
+        alias: 'doctrine.orm.entity_manager'
+    brother_comment.comment_manager:
+        class: %brother_comment.manager.comment.class%
+        arguments:
+            - '@event_dispatcher'
+            - '@brother_comment.entity_manager'
+            - %brother_comment.model.comment.class%
+    brother_comment.report_manager:
+        class: %brother_comment.manager.report.class%
+        arguments:
+            - '@event_dispatcher'
+            - '@brother_comment.entity_manager'
+            - %brother_comment.model.report.class%

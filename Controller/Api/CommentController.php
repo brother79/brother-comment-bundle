@@ -11,9 +11,7 @@
 
 namespace Brother\CommentBundle\Controller\Api;
 
-use FOS\RestBundle\Controller\Annotations\Route;
 use FOS\RestBundle\Controller\Annotations\View;
-use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Brother\CommentBundle\Model\Comment;
 use Brother\CommentBundle\Model\CommentManagerInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

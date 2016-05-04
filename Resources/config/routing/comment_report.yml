@@ -1,0 +1,30 @@
+comment_report:
+    path:     /
+    defaults: { _controller: "BrotherCommentBundle:CommentReport:index" }
+
+comment_report_show:
+    path:     /{id}/show
+    defaults: { _controller: "BrotherCommentBundle:CommentReport:show" }
+
+comment_report_new:
+    path:     /new
+    defaults: { _controller: "BrotherCommentBundle:CommentReport:new" }
+
+comment_report_create:
+    path:     /create
+    defaults: { _controller: "BrotherCommentBundle:CommentReport:create" }
+    methods:  POST
+
+comment_report_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BrotherCommentBundle:CommentReport:edit" }
+
+comment_report_update:
+    path:     /{id}/update
+    defaults: { _controller: "BrotherCommentBundle:CommentReport:update" }
+    methods:  [POST, PUT]
+
+comment_report_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BrotherCommentBundle:CommentReport:delete" }
+    methods:  [POST, DELETE]

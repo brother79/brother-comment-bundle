@@ -27,14 +27,14 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('sonata_news');
+        $rootNode = $treeBuilder->root('brother_comment');
 
         $rootNode
             ->children()
                 ->scalarNode('title')->isRequired()->end()
                 ->scalarNode('link')->isRequired()->end()
                 ->scalarNode('description')->isRequired()->end()
-                ->scalarNode('permalink_generator')->defaultValue('sonata.news.permalink.date')->end()
+                ->scalarNode('permalink_generator')->defaultValue('brother.comment.permalink.date')->end()
                 ->scalarNode('salt')->isRequired()->end()
                 ->arrayNode('permalink')
                     ->addDefaultsIfNotSet()
@@ -53,8 +53,8 @@ class Configuration implements ConfigurationInterface
                     ->children()
                         ->scalarNode('tag')->defaultValue('Application\\Sonata\\ClassificationBundle\\Entity\\Tag')->end()
                         ->scalarNode('collection')->defaultValue('Application\\Sonata\\ClassificationBundle\\Entity\\Collection')->end()
-                        ->scalarNode('post')->defaultValue('Application\\Sonata\\NewsBundle\\Entity\\Post')->end()
-                        ->scalarNode('comment')->defaultValue('Application\\Sonata\\NewsBundle\\Entity\\Comment')->end()
+                        ->scalarNode('post')->defaultValue('Application\\Sonata\\CommentBundle\\Entity\\Post')->end()
+                        ->scalarNode('comment')->defaultValue('Application\\Sonata\\CommentBundle\\Entity\\Comment')->end()
                         ->scalarNode('media')->defaultValue('Application\\Sonata\\MediaBundle\\Entity\\Media')->end()
                         ->scalarNode('user')->defaultValue('Application\\Sonata\\UserBundle\\Entity\\User')->end()
                     ->end()
@@ -66,7 +66,7 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('post')
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('class')->cannotBeEmpty()->defaultValue('Sonata\\NewsBundle\\Admin\\PostAdmin')->end()
+                                ->scalarNode('class')->cannotBeEmpty()->defaultValue('Brother\\CommentBundle\\Admin\\PostAdmin')->end()
                                 ->scalarNode('controller')->cannotBeEmpty()->defaultValue('SonataAdminBundle:CRUD')->end()
                                 ->scalarNode('translation')->cannotBeEmpty()->defaultValue('BrotherCommentBundle')->end()
                             ->end()
@@ -74,7 +74,7 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('comment')
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('class')->cannotBeEmpty()->defaultValue('Sonata\\NewsBundle\\Admin\\CommentAdmin')->end()
+                                ->scalarNode('class')->cannotBeEmpty()->defaultValue('Brother\\CommentBundle\\Admin\\CommentAdmin')->end()
                                 ->scalarNode('controller')->cannotBeEmpty()->defaultValue('BrotherCommentBundle:CommentAdmin')->end()
                                 ->scalarNode('translation')->cannotBeEmpty()->defaultValue('BrotherCommentBundle')->end()
                             ->end()

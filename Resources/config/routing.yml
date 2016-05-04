@@ -1,0 +1,8 @@
+brother_comment_comment_report:
+    resource: "@BrotherCommentBundle/Resources/config/routing/comment_report.yml"
+    prefix:   /comment_report
+
+brother_comment_comment:
+    resource: "@BrotherCommentBundle/Resources/config/routing/comment.yml"
+    prefix:   /comment
+
