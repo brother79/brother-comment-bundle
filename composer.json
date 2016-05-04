@@ -1,38 +1,40 @@
 {
-    "name": "brother/comment-bundle",
-    "type": "symfony-bundle",
-    "version":"1.0",
-    "description": "Symfony BrotherCommentBundle",
-    "keywords": ["comment", "sonata"],
-    "homepage": "http://doc13.ru",
-    "license": "MIT",
-    "authors": [
-        {
-            "name":     "Andrey Dashkovskiy",
-			"email":    "brother79@mail.ru",
-            "homepage": "http://doc13.ru/"
-        }
-    ],
-    "require": {
-        "php": ">=5.3.2",
-        "symfony/symfony": "~2.3|~3.0",
-        "sonata-project/core-bundle": ">=2.3.10"
-    },
-    "require-dev": {
-        "doctrine/orm": "*"
-    },
-    "autoload": {
-        "psr-4": { 
-			"Brother\\CommentBundle\\": "" 
-		}
-    },
-	"target-dir": "Brother/CommentBundle",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0"
-        }
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "brother/comment-bundle",
+  "type": "symfony-bundle",
+  "version": "1.0",
+  "description": "Symfony BrotherCommentBundle",
+  "keywords": [
+    "comment",
+    "sonata"
+  ],
+  "homepage": "http://doc13.ru",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andrey Dashkovskiy",
+      "email": "brother79@mail.ru",
+      "homepage": "http://doc13.ru/"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.2",
+    "symfony/symfony": "~2.3|~3.0",
+    "sonata-project/core-bundle": ">=2.3.10"
+  },
+  "require-dev": {
+    "doctrine/orm": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Brother\\CommentBundle\\": ""
+    }
+  },
+  "target-dir": "Brother/CommentBundle",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
