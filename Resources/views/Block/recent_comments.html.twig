@@ -27,23 +27,18 @@ file that was distributed with this source code.
             <div class="sonata-blog-post-container list-group">
                 {% for comment in pager.getResults() %}
                     {% if context.getSetting('mode') == 'admin' and admin_pool is defined %}
-                        <a class="list-group-item" href="{{ admin_pool.getAdminByAdminCode('brother.comment.admin.comment').generateUrl('edit', { 'id': comment.id }) }}">
-                            <span class="label label-{{ comment|sonata_status_class }}">
-                                {% if comment.status == constant('Brother\\CommentBundle\\Model\\CommentInterface::STATUS_INVALID') %}
-                                    {{ 'label_comment_invalid'|trans({}, 'BrotherCommentBundle') }}
-                                {% elseif comment.status == constant('Brother\\CommentBundle\\Model\\CommentInterface::STATUS_VALID') %}
-                                    {{ 'label_comment_valid'|trans({}, 'BrotherCommentBundle') }}
-                                {% elseif comment.status == constant('Brother\\CommentBundle\\Model\\CommentInterface::STATUS_MODERATE') %}
-                                    {{ 'label_comment_moderate'|trans({}, 'BrotherCommentBundle') }}
-                                {% else %}
-                                    {{ 'label_unknown_status'|trans({}, 'BrotherCommentBundle') }}
-                                {% endif %}
+                        <a class="list-group-item"
+                           href="{{ admin_pool.getAdminByAdminCode('brother.comment.admin.comment').generateUrl('edit', { 'id': comment.id }) }}">
+                            <span class="label label-{{ comment|sonata_status_class }} {{ comment.status }}">
+                                 {{ ('label_comment_' ~ comment.statusCode)|trans({}, 'BrotherCommentBundle') }}
                             </span>&nbsp;
-
-                            {{ comment.name }} - {{ comment.message|truncate(30) }}
+                            {{ comment.createdAt|date("d.m.Y") }} - {{ comment.name }}
+                            - {{ comment.message|truncate(30) }}
                         </a>
                     {% else %}
-                        <a class="list-group-item" href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(comment.post) }) }}">{{ comment.name }} - {{ comment.message|truncate(30) }}
+                        <a class="list-group-item"
+                           href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(comment.post) }) }}">{{ comment.name }}
+                            - {{ comment.message|truncate(30) }}
                         </a>
                     {% endif %}
                 {% else %}
@@ -54,7 +49,9 @@ file that was distributed with this source code.
 
         <div class="box-footer">
             {% if context.getSetting('mode') == 'admin' and admin_pool is defined %}
-                <a href="{{ admin_pool.getAdminByAdminCode('brother.comment.admin.comment').generateUrl('list') }}" class="btn btn-primary btn-block"><i class="fa fa-list"></i> {{ 'view_all_comments'|trans({}, 'BrotherCommentBundle') }}</a>
+                <a href="{{ admin_pool.getAdminByAdminCode('brother.comment.admin.comment').generateUrl('list') }}"
+                   class="btn btn-primary btn-block"><i
+                            class="fa fa-list"></i> {{ 'view_all_comments'|trans({}, 'BrotherCommentBundle') }}</a>
             {% endif %}
         </div>
     </div>
