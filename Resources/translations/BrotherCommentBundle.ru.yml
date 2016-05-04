@@ -30,8 +30,8 @@ Open Comment: Открытые комментарии
 post_is_public: Публичный
 archive_author: Автор
 view_all_posts: Все новости
-label_comment_invalid: Заблокирован
-label_comment_valid: Разрешён
+label_comment_invalid: Невалидный
+label_comment_valid: Валидный
 view_all_comments: Все комментарии
 comments: Комментарии
 posts: Новости
@@ -45,3 +45,8 @@ form.label_body: Сообщение
 form.label_status: Статус
 form.label_created_at: Создан
 form.label_is_subscribe: Подписка
+
+list.label_email: E-Mail
+list.label_website: Вебсайт
+filter.label_email: E-Mail
+filter.label_website: Вебсайт
