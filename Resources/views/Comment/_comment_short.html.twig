@@ -1,0 +1,19 @@
+{% if obj.link %}
+<h3>
+    <span class="author">
+        {% if obj.website %}
+        <a href="{{ obj.website }}" target="_blank">{{ obj.name }}</a>
+        {% else %}
+        {{ obj.name is defined ? obj.name : '' }}
+        {% endif %}
+</span>
+</h3>
+<h3><span class="date">{{ obj.createdAt|date("d.m.Y") }}</span></h3>
+
+<div id="body_{{ obj.id }}">{{ obj.body|truncate(100) }}</div>
+
+<div style="float:right;">
+    <a href="{{ obj.link }}">Подробнее...</a>
+</div>
+{% endif %}
+<div style="clear:both;"></div>

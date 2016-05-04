@@ -1,0 +1,28 @@
+<div class="pagination">
+{% if position == "back" %}
+    {% include "BrotherCommentBundle:Comment:_back_to_top.html.twig" with {route: route, crypt: crypt, text: false} %}
+{% endif %}
+  <a href="<?php echo url_for(commentTools::rewriteUrlForPage($route, 1, $crypt)) ?>">
+    <img src="/bundles/brothercomment/images/resultset_first.png" alt="Первая страница" title="Первая страница">
+  </a>
+
+  <a href="<?php echo url_for(commentTools::rewriteUrlForPage($route, pager.PreviousPage, $crypt)) ?>">
+      <img src="/bundles/brothercomment/images/resultset_previous.png" alt="Пред. страница" title="Пред. страница">
+  </a>
+
+  {% for page in pager.getLinks() %}
+    {% if ($page == pager.Page): ?>
+      {{ page }}
+    {% else %}
+      <a href="<?php echo url_for(commentTools::rewriteUrlForPage($route, $page, $crypt)) ?>">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  <a href="<?php echo url_for(commentTools::rewriteUrlForPage($route, pager.NextPage, $crypt)) ?>">
+    <?php echo image_tag('/vjCommentPlugin/images/resultset_next.png', array('alt' => __('Next page of comments', array(), 'vjComment'), 'title' => __('Next page of comments', array(), 'vjComment'))) ?>
+  </a>
+
+  <a href="<?php echo url_for(commentTools::rewriteUrlForPage($route, pager.LastPage, $crypt)) ?>">
+    <?php echo image_tag('/vjCommentPlugin/images/resultset_last.png', array('alt' => __('Last page of comments', array(), 'vjComment'), 'title' => __('Last page of comments', array(), 'vjComment'))) ?>
+  </a>
+</div>

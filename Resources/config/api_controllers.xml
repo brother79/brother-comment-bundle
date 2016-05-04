@@ -5,14 +5,14 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="sonata.news.controller.api.comment" class="Brother\CommentBundle\Controller\Api\CommentController">
-            <argument type="service" id="sonata.news.manager.comment" />
+        <service id="brother.comment.controller.api.comment" class="Brother\CommentBundle\Controller\Api\CommentController">
+            <argument type="service" id="brother.comment.manager.comment" />
         </service>
 
-        <service id="sonata.news.controller.api.post" class="Brother\CommentBundle\Controller\Api\PostController">
-            <argument type="service" id="sonata.news.manager.post" />
-            <argument type="service" id="sonata.news.manager.comment" />
-            <argument type="service" id="sonata.news.mailer" />
+        <service id="brother.comment.controller.api.post" class="Brother\CommentBundle\Controller\Api\PostController">
+            <argument type="service" id="brother.comment.manager.post" />
+            <argument type="service" id="brother.comment.manager.comment" />
+            <argument type="service" id="brother.comment.mailer" />
             <argument type="service" id="form.factory" />
             <argument type="service" id="sonata.formatter.pool" />
         </service>

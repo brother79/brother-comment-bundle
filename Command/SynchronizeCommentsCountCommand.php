@@ -32,7 +32,7 @@ class SynchronizeCommentsCountCommand extends ContainerAwareCommand
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $commentManager = $this->getContainer()->get('sonata.news.manager.comment');
+        $commentManager = $this->getContainer()->get('brother.comment.manager.comment');
 
         $commentManager->updateCommentsCount();
 

@@ -7,21 +7,21 @@
     <services>
 
         <!-- permalink generator -->
-        <service id="sonata.news.permalink.date" class="Brother\CommentBundle\Permalink\DatePermalink">
+        <service id="brother.comment.permalink.date" class="Brother\CommentBundle\Permalink\DatePermalink">
             <argument />
         </service>
 
-        <service id="sonata.news.permalink.collection" class="Brother\CommentBundle\Permalink\CollectionPermalink" />
+        <service id="brother.comment.permalink.collection" class="Brother\CommentBundle\Permalink\CollectionPermalink" />
 
         <!-- email security token -->
-        <service id="sonata.news.hash.generator" class="Brother\CommentBundle\Util\HashGenerator">
+        <service id="brother.comment.hash.generator" class="Brother\CommentBundle\Util\HashGenerator">
             <argument />
         </service>
 
-        <service id="sonata.news.mailer" class="Brother\CommentBundle\Mailer\Mailer">
+        <service id="brother.comment.mailer" class="Brother\CommentBundle\Mailer\Mailer">
             <argument type="service" id="mailer" />
-            <argument type="service" id="sonata.news.blog" />
-            <argument type="service" id="sonata.news.hash.generator" />
+            <argument type="service" id="brother.comment.blog" />
+            <argument type="service" id="brother.comment.hash.generator" />
             <argument type="service" id="router" />
             <argument type="service" id="templating" />
             <argument />

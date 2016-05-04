@@ -1,0 +1,41 @@
+{% if $form %}
+<table summary="">
+    {% for f,id in form %}
+    {#{%  if $id == "reply_author" and f.value != "" %}#}
+    {#use_stylesheet("/vjCommentPlugin/css/replyTo.min.css", "last")#}
+    {#{% endif %}#}
+    {% if not f.isHidden %}
+    {% if not f.hasError %}
+    {% set attributes = {} %}
+    {% else %}
+    {% set attributes = {class: 'error'} %}
+    <tr>
+        <td></td>
+        <td>{{ f.renderError }}</td>
+    </tr>
+    {% endif %}
+    <tr id="tr_{{ id }}">
+        <th>
+            {{ f.renderLabel(null, $attributes) }}
+        </th>
+        <td>
+            {{ f.render(attributes) }}
+            <span class="help">{{ f.renderHelp() }}</span>
+        </td>
+    </tr>
+    {% if id == "reply_author" %}
+    <tr id="tr_reply_author_delete">
+        <td colspan="2"><a href="deleteReply()" class="delete_reply">Удалить ответ</a>
+        </td>
+    </tr>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    <tr>
+        <td colspan="2" class="submit">
+            <?php echo $form->renderHiddenFields() ?>
+            <input type="submit" value="Отправить" class="submit"/>
+        </td>
+    </tr>
+</table>
+{% endif %}

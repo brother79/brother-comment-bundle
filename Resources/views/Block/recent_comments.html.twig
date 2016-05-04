@@ -27,7 +27,7 @@ file that was distributed with this source code.
             <div class="sonata-blog-post-container list-group">
                 {% for comment in pager.getResults() %}
                     {% if context.getSetting('mode') == 'admin' and admin_pool is defined %}
-                        <a class="list-group-item" href="{{ admin_pool.getAdminByAdminCode('sonata.news.admin.comment').generateUrl('edit', { 'id': comment.id }) }}">
+                        <a class="list-group-item" href="{{ admin_pool.getAdminByAdminCode('brother.comment.admin.comment').generateUrl('edit', { 'id': comment.id }) }}">
                             <span class="label label-{{ comment|sonata_status_class }}">
                                 {% if comment.status == constant('Brother\\CommentBundle\\Model\\CommentInterface::STATUS_INVALID') %}
                                     {{ 'label_comment_invalid'|trans({}, 'BrotherCommentBundle') }}
@@ -54,7 +54,7 @@ file that was distributed with this source code.
 
         <div class="box-footer">
             {% if context.getSetting('mode') == 'admin' and admin_pool is defined %}
-                <a href="{{ admin_pool.getAdminByAdminCode('sonata.news.admin.comment').generateUrl('list') }}" class="btn btn-primary btn-block"><i class="fa fa-list"></i> {{ 'view_all_comments'|trans({}, 'BrotherCommentBundle') }}</a>
+                <a href="{{ admin_pool.getAdminByAdminCode('brother.comment.admin.comment').generateUrl('list') }}" class="btn btn-primary btn-block"><i class="fa fa-list"></i> {{ 'view_all_comments'|trans({}, 'BrotherCommentBundle') }}</a>
             {% endif %}
         </div>
     </div>

@@ -6,9 +6,9 @@
 
     <services>
 
-        <service id="sonata.news.serializer.handler.post" class="Brother\CommentBundle\Serializer\PostSerializerHandler">
+        <service id="brother.comment.serializer.handler.post" class="Brother\CommentBundle\Serializer\PostSerializerHandler">
             <tag name="jms_serializer.subscribing_handler" />
-            <argument type="service" id="sonata.news.manager.post" />
+            <argument type="service" id="brother.comment.manager.post" />
         </service>
 
     </services>

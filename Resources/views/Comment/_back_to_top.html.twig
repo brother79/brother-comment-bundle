@@ -1,0 +1,8 @@
+<div class="backtop{% if text is defined %} backtopmax{% endif %}">
+<a href="{{ path(route) }}#comments-{{ crypt }}">
+    {% if text is defined %}
+        Назад
+    {% endif %}
+    <img src="/bundles/brothercomment/images/arrow-up.png" alt="назад" title="назад">
+</a>
+</div>

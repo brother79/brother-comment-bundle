@@ -25,7 +25,7 @@ file that was distributed with this source code.
             <div class="sonata-blog-post-container list-group">
                 {% for post in pager.getResults() %}
                     {% if context.getSetting('mode') == 'admin' and admin_pool is defined %}
-                        <a class="list-group-item" href="{{ admin_pool.getAdminByAdminCode('sonata.news.admin.post').generateUrl('edit', { 'id': post.id }) }}">
+                        <a class="list-group-item" href="{{ admin_pool.getAdminByAdminCode('brother.comment.admin.post').generateUrl('edit', { 'id': post.id }) }}">
                             {% if post.ispublic %}
                             <span class="label label-success">{{ 'post_is_public'|trans({}, 'BrotherCommentBundle') }}</span>
                         {% else %}
@@ -44,7 +44,7 @@ file that was distributed with this source code.
 
         <div class="box-footer">
             {% if context.getSetting('mode') == 'admin' and admin_pool is defined %}
-                <a href="{{ admin_pool.getAdminByAdminCode('sonata.news.admin.post').generateUrl('list') }}" class="btn btn-primary btn-block"><i class="fa fa-list"></i> {{ 'view_all_posts'|trans({}, 'BrotherCommentBundle') }}</a>
+                <a href="{{ admin_pool.getAdminByAdminCode('brother.comment.admin.post').generateUrl('list') }}" class="btn btn-primary btn-block"><i class="fa fa-list"></i> {{ 'view_all_posts'|trans({}, 'BrotherCommentBundle') }}</a>
             {% else %}
                 <a href="{{ url('sonata_news_archive') }}" class="btn btn-primary btn-block"><i class="fa fa-list"></i> {{ 'view_all_posts'|trans({}, 'BrotherCommentBundle') }}</a>
             {% endif %}

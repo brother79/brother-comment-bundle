@@ -1,0 +1,13 @@
+{#
+use_stylesheet("/vjCommentPlugin/css/form.min.css");
+use_stylesheet("/vjCommentPlugin/css/formComment.min.css");
+#}
+<a name="comments-{{ crypt is defined ? crypt: '' }}"></a>
+<div class="form-comment">
+    <form action="{{ app.request.uri }}" method="post">
+        <fieldset>
+            <legend>Добавить новый коммент</legend>
+            {% include "BrotherCommentBundle:Comment:_form.html.twig" with {form: form} %}
+        </fieldset>
+    </form>
+</div>

@@ -5,13 +5,13 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="sonata.news.form.type.comment" class="Brother\CommentBundle\Form\Type\CommentType">
+        <service id="brother.comment.form.type.comment" class="Brother\CommentBundle\Form\Type\CommentType">
             <tag name="form.type" alias="sonata_post_comment" />
 
         </service>
 
-        <service id="sonata.news.form.comment.status_type" class="Brother\CommentBundle\Form\Type\CommentStatusType">
-            <argument>%sonata.news.manager.comment.entity%</argument>
+        <service id="brother.comment.form.comment.status_type" class="Brother\CommentBundle\Form\Type\CommentStatusType">
+            <argument>%brother.comment.manager.comment.entity%</argument>
             <argument>getStatusList</argument>
             <argument>sonata_news_comment_status</argument>
 

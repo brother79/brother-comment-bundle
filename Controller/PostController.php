@@ -294,7 +294,7 @@ class PostController extends Controller
             $comment = $form->getData();
 
             $this->getCommentManager()->save($comment);
-            $this->get('sonata.news.mailer')->sendCommentNotification($comment);
+            $this->get('brother.comment.mailer')->sendCommentNotification($comment);
 
             // todo : add notice
             return new RedirectResponse($this->generateUrl('sonata_news_view', array(
@@ -313,7 +313,7 @@ class PostController extends Controller
      */
     protected function getPostManager()
     {
-        return $this->get('sonata.news.manager.post');
+        return $this->get('brother.comment.manager.post');
     }
 
     /**
@@ -321,7 +321,7 @@ class PostController extends Controller
      */
     protected function getCommentManager()
     {
-        return $this->get('sonata.news.manager.comment');
+        return $this->get('brother.comment.manager.comment');
     }
 
     /**
@@ -329,7 +329,7 @@ class PostController extends Controller
      */
     protected function getBlog()
     {
-        return $this->get('sonata.news.blog');
+        return $this->get('brother.comment.blog');
     }
 
     /**
@@ -349,7 +349,7 @@ class PostController extends Controller
             throw new AccessDeniedException();
         }
 
-        $computedHash = $this->get('sonata.news.hash.generator')->generate($comment);
+        $computedHash = $this->get('brother.comment.hash.generator')->generate($comment);
 
         if ($computedHash != $hash) {
             throw new AccessDeniedException();

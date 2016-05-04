@@ -1,0 +1,7 @@
+<tbody class="comment{{ obj.status == 'deleted' ? ' deleted' : '' }} {{ obj.status}}">
+<tr{% if first_line %} class="first_line"{% endif %}>
+    {% include "BrotherCommentBundle:Comment:_comment_author.html.twig" with {website: obj.website is defined ? obj.website : '', name: $obj.author_name, date. obj.createdAt} %}
+    {% include "BrotherCommentBundle:Comment:_comment_infos.html.twig" with {obj: obj, i: i} %}
+</tr>
+{% include "BrotherCommentBundle:Comment:_comment_body.html.twig" with {obj: obj} %}
+</tbody>

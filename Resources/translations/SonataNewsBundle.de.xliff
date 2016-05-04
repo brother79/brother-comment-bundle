@@ -436,11 +436,11 @@
                 <target>Klassifizierung</target>
             </trans-unit>
             <trans-unit id="sonata_news_block_recent_comments">
-                <source>sonata.news.block.recent_comments</source>
+                <source>brother.comment.block.recent_comments</source>
                 <target>News - Letzte Kommentare</target>
             </trans-unit>
             <trans-unit id="sonata_news_block_recent_posts">
-                <source>sonata.news.block.recent_posts</source>
+                <source>brother.comment.block.recent_posts</source>
                 <target>News - Letzte Artikel</target>
             </trans-unit>
             <trans-unit id="form.label_number">

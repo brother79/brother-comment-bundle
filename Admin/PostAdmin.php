@@ -177,7 +177,7 @@ class PostAdmin extends Admin
 
         $menu->addChild(
             $this->trans('sidemenu.link_view_comments'),
-            array('uri' => $admin->generateUrl('sonata.news.admin.comment.list', array('id' => $id)))
+            array('uri' => $admin->generateUrl('brother.comment.admin.comment.list', array('id' => $id)))
         );
 
         if ($this->hasSubject() && $this->getSubject()->getId() !== null) {

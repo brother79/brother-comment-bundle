@@ -1,0 +1,10 @@
+<td class="author">
+        <span class="author">
+        {% if website %}
+            <a href="{{ website }}" target="_blank">{{ name }}</a>
+        {% else %}
+            {{ name }}
+        {% endif %}
+        </span>
+    <span class="date">{{ date }}</span>
+</td>

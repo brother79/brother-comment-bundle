@@ -1,0 +1,13 @@
+{#
+use_stylesheet("/vjCommentPlugin/css/comment.min.css");
+use_stylesheet("/vjCommentPlugin/css/pagination.min.css");
+use_javascript("/vjCommentPlugin/js/reply.min.js");
+#}
+<div>
+    <h2>Комментарии</h2>
+</div>
+{% set i = 0 %}
+{% set cpt = 0 %}
+{% for c in objects %}
+    {% include "BrotherCommentBundle:Comment:_comment_short.html.twig" with { obj: c, i: (++i + cpt), first_line: (i == 1) } %}
+{% endfor %}

@@ -1,0 +1,11 @@
+<tr>
+    <td class="body">
+        {% if (vjComment::isNeedModerate($obj)): ?>
+        <div class="msg-deleted"><?php echo __('Comment moderation awaiting', array(), 'vjComment') ?></div>
+        <?php elseif (obj.status != svBasePeer::STATUS_DELETED): ?>
+		<div id="body_{{ obj.id }}">{{ obj.body|raw }}</div>
+		{% else %}
+        <div class="msg-deleted">Комментарий удалён модератором</div>
+        {% endif %}
+    </td>
+</tr>

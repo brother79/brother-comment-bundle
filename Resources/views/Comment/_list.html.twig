@@ -1,0 +1,31 @@
+{#
+if ($has_comments):
+    use_helper('Date', 'JavascriptBase', 'I18N');
+    use_stylesheet("/vjCommentPlugin/css/comment.min.css");
+    use_stylesheet("/vjCommentPlugin/css/pagination.min.css");
+    use_javascript("/vjCommentPlugin/js/reply.min.js");
+    if (commentTools::isGravatarAvailable()):
+        use_helper('Gravatar');
+    endif;
+#}
+<div>
+    <h3>Комментарии ({{ pager.getNbResults }})</h3>
+</div>
+{% if pager.haveToPaginate %}
+    {% include "BrotherCommentBundle:Comment:_pagination.html.twig" with {pager: pager, route: app.request.uri, crypt: crypt, position: 'top'} %}
+{% endif %}
+<table class="list-comments" summary="">
+    {% for c in pager %}
+    {% include "BrotherCommentBundle:Comment:_comment.html.twig" with {obj: c, i: (++$i + $cpt), first_line: (i == 1)} %}
+    {% endfor %}
+</table>
+{% if pager.haveToPaginate %}
+    {% include "BrotherCommentBundle:Comment:_pagination.html.twig" with {pager: pager, route: app.request.uri, crypt: crypt, position: 'back'} %}
+{% else %}
+    {% include "BrotherCommentBundle:Comment:_back_to_top.html.twig" with {route: app.request.uri, crypt: crypt, text: true} %}
+{% endif %}
+{% else %}
+    <div>
+        <h1>Оставьте первый комментарий</h1>
+    </div>
+{% endif %}

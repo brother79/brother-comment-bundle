@@ -5,45 +5,45 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="sonata.news.block.recent_posts" class="Brother\CommentBundle\Block\RecentPostsBlockService">
+        <service id="brother.comment.block.recent_posts" class="Brother\CommentBundle\Block\RecentPostsBlockService">
             <tag name="sonata.block"/>
 
-            <argument>sonata.news.block.recent_posts</argument>
+            <argument>brother.comment.block.recent_posts</argument>
             <argument type="service" id="templating" />
-            <argument type="service" id="sonata.news.manager.post" />
+            <argument type="service" id="brother.comment.manager.post" />
             <argument type="service" id="sonata.admin.pool" on-invalid="ignore" />
         </service>
 
-        <service id="sonata.news.block.recent_comments" class="Brother\CommentBundle\Block\RecentCommentsBlockService">
+        <service id="brother.comment.block.recent_comments" class="Brother\CommentBundle\Block\RecentCommentsBlockService">
             <tag name="sonata.block"/>
 
-            <argument>sonata.news.block.recent_comments</argument>
+            <argument>brother.comment.block.recent_comments</argument>
             <argument type="service" id="templating" />
-            <argument type="service" id="sonata.news.manager.comment" />
+            <argument type="service" id="brother.comment.manager.comment" />
             <argument type="service" id="sonata.admin.pool" on-invalid="ignore" />
         </service>
 
-        <service id="sonata.news.block.breadcrumb_archive" class="Brother\CommentBundle\Block\Breadcrumb\NewsArchiveBreadcrumbBlockService">
+        <service id="brother.comment.block.breadcrumb_archive" class="Brother\CommentBundle\Block\Breadcrumb\NewsArchiveBreadcrumbBlockService">
             <tag name="sonata.block"/>
             <tag name="sonata.breadcrumb"/>
 
             <argument>news_archive</argument>
-            <argument>sonata.news.block.breadcrumb_archive</argument>
+            <argument>brother.comment.block.breadcrumb_archive</argument>
             <argument type="service" id="templating" />
             <argument type="service" id="knp_menu.menu_provider" />
             <argument type="service" id="knp_menu.factory" />
         </service>
 
-        <service id="sonata.news.block.breadcrumb_post" class="Brother\CommentBundle\Block\Breadcrumb\NewsPostBreadcrumbBlockService">
+        <service id="brother.comment.block.breadcrumb_post" class="Brother\CommentBundle\Block\Breadcrumb\NewsPostBreadcrumbBlockService">
             <tag name="sonata.block"/>
             <tag name="sonata.breadcrumb"/>
 
             <argument>news_post</argument>
-            <argument>sonata.news.block.breadcrumb_post</argument>
+            <argument>brother.comment.block.breadcrumb_post</argument>
             <argument type="service" id="templating" />
             <argument type="service" id="knp_menu.menu_provider" />
             <argument type="service" id="knp_menu.factory" />
-            <argument type="service" id="sonata.news.blog" />
+            <argument type="service" id="brother.comment.blog" />
         </service>
     </services>
 

@@ -26,7 +26,7 @@ class NewsArchiveBreadcrumbBlockService extends BaseNewsBreadcrumbBlockService
      */
     public function getName()
     {
-        return 'sonata.news.block.breadcrumb_archive';
+        return 'brother.comment.block.breadcrumb_archive';
     }
 
     /**

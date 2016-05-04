@@ -1,0 +1,12 @@
+      <td rowspan="2" class="infos">
+        <a name="{{ i }}" class="ancre">#{{ i }}</a>
+        {% if obj.status != 'deleted' and not obj.isNeedModerate %}
+          <?php echo link_to_function(
+                image_tag('/vjCommentPlugin/images/error.png', array( 'alt' => 'report' )) ,
+                'window.open(
+                  \''.url_for('@comment_reporting?id='.obj.id.'&num='.$i).'\',
+                  \''.__('Add new comment', array(), 'vjComment').'\',
+                    "menubar=no, status=no, scrollbars=no, menubar=no, width=' . sfConfig::get('app_vjCommentPlugin_report_width', 600) . ', height=' . sfConfig::get('app_vjCommentPlugin_report_height', 350) . '")',
+                array('target' => '_blank', 'title' => __('Report this comment - New window', array(), 'vjComment') )) ?><br />
+        {% endif %}
+      </td>

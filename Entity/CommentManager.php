@@ -156,4 +156,20 @@ class CommentManager extends BaseEntityManager implements CommentManagerInterfac
 
         return $pager;
     }
+    /**
+     * @return mixed
+     */
+    public function getLast($count=1)
+    {
+        return $this->getRepository()->createQueryBuilder('c')
+//            ->andWhere('c.status=:status')->setParameter('status', self::STATUS_CREATED)
+//            ->orderBy('c.created_at', 'desc')
+            ->setMaxResults($count)
+            ->getQuery()
+            ->useQueryCache(true)
+            ->useResultCache(true, 3600)
+            ->execute();
+//        return $this->findOneBy(array('status' => self::STATUS_CREATED), array('created_at' => 'desc'));
+    }
+
 }

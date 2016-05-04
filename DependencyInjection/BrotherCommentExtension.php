@@ -70,25 +70,25 @@ class BrotherCommentExtension extends Extension
             throw new \InvalidArgumentException("The configuration node 'comment' is not set for the BrotherCommentBundle (sonata_news)");
         }
 
-        $container->getDefinition('sonata.news.hash.generator')
+        $container->getDefinition('brother.comment.hash.generator')
             ->replaceArgument(0, $config['salt']);
 
-        $container->getDefinition('sonata.news.permalink.date')
+        $container->getDefinition('brother.comment.permalink.date')
             ->replaceArgument(0, $config['permalink']['date']);
 
-        $container->setAlias('sonata.news.permalink.generator', $config['permalink_generator']);
+        $container->setAlias('brother.comment.permalink.generator', $config['permalink_generator']);
 
-        $container->setDefinition('sonata.news.blog', new Definition('Brother\CommentBundle\Model\Blog', array(
+        $container->setDefinition('brother.comment.blog', new Definition('Brother\CommentBundle\Model\Blog', array(
             $config['title'],
             $config['link'],
             $config['description'],
-            new Reference('sonata.news.permalink.generator'),
+            new Reference('brother.comment.permalink.generator'),
         )));
 
-        $container->getDefinition('sonata.news.hash.generator')
+        $container->getDefinition('brother.comment.hash.generator')
             ->replaceArgument(0, $config['salt']);
 
-        $container->getDefinition('sonata.news.mailer')
+        $container->getDefinition('brother.comment.mailer')
             ->replaceArgument(5, array(
                 'notification' => $config['comment']['notification'],
             ));
@@ -105,12 +105,12 @@ class BrotherCommentExtension extends Extension
     public function configureClass($config, ContainerBuilder $container)
     {
         // admin configuration
-        $container->setParameter('sonata.news.admin.post.entity',       $config['class']['post']);
-        $container->setParameter('sonata.news.admin.comment.entity',    $config['class']['comment']);
+        $container->setParameter('brother.comment.admin.post.entity',       $config['class']['post']);
+        $container->setParameter('brother.comment.admin.comment.entity',    $config['class']['comment']);
 
         // manager configuration
-        $container->setParameter('sonata.news.manager.post.entity',     $config['class']['post']);
-        $container->setParameter('sonata.news.manager.comment.entity',  $config['class']['comment']);
+        $container->setParameter('brother.comment.manager.post.entity',     $config['class']['post']);
+        $container->setParameter('brother.comment.manager.comment.entity',  $config['class']['comment']);
     }
 
     /**
@@ -119,13 +119,13 @@ class BrotherCommentExtension extends Extension
      */
     public function configureAdmin($config, ContainerBuilder $container)
     {
-        $container->setParameter('sonata.news.admin.post.class',              $config['admin']['post']['class']);
-        $container->setParameter('sonata.news.admin.post.controller',         $config['admin']['post']['controller']);
-        $container->setParameter('sonata.news.admin.post.translation_domain', $config['admin']['post']['translation']);
+        $container->setParameter('brother.comment.admin.post.class',              $config['admin']['post']['class']);
+        $container->setParameter('brother.comment.admin.post.controller',         $config['admin']['post']['controller']);
+        $container->setParameter('brother.comment.admin.post.translation_domain', $config['admin']['post']['translation']);
 
-        $container->setParameter('sonata.news.admin.comment.class',              $config['admin']['comment']['class']);
-        $container->setParameter('sonata.news.admin.comment.controller',         $config['admin']['comment']['controller']);
-        $container->setParameter('sonata.news.admin.comment.translation_domain', $config['admin']['comment']['translation']);
+        $container->setParameter('brother.comment.admin.comment.class',              $config['admin']['comment']['class']);
+        $container->setParameter('brother.comment.admin.comment.controller',         $config['admin']['comment']['controller']);
+        $container->setParameter('brother.comment.admin.comment.translation_domain', $config['admin']['comment']['translation']);
     }
 
     /**

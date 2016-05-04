@@ -61,7 +61,7 @@ if you use the API.
         link:         https://sonata-project.org
         description:  Cool bundles on top of Symfony2
         salt:         'secureToken'
-        permalink_generator: sonata.news.permalink.date # sonata.news.permalink.collection
+        permalink_generator: brother.comment.permalink.date # brother.comment.permalink.collection
 
         comment:
             notification:
