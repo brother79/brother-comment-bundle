@@ -29,7 +29,6 @@
       "Brother\\CommentBundle\\": ""
     }
   },
-  "target-dir": "Brother/CommentBundle",
   "extra": {
     "branch-alias": {
       "dev-master": "1.0"
