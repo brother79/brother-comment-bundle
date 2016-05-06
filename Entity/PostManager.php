@@ -16,7 +16,6 @@ use Sonata\ClassificationBundle\Model\CollectionInterface;
 use Sonata\CoreBundle\Model\BaseEntityManager;
 use Sonata\DatagridBundle\Pager\Doctrine\Pager;
 use Sonata\DatagridBundle\ProxyQuery\Doctrine\ProxyQuery;
-use Brother\CommentBundle\Model\BlogInterface;
 use Brother\CommentBundle\Model\PostInterface;
 use Brother\CommentBundle\Model\PostManagerInterface;
 
@@ -24,18 +23,16 @@ class PostManager extends BaseEntityManager implements PostManagerInterface
 {
     /**
      * @param string        $permalink
-     * @param BlogInterface $blog
      *
      * @return PostInterface
      */
-    public function findOneByPermalink($permalink, BlogInterface $blog)
+    public function findOneByPermalink($permalink)
     {
         $repository = $this->getRepository();
 
         $query = $repository->createQueryBuilder('p');
 
         try {
-            $urlParameters = $blog->getPermalinkGenerator()->getParameters($permalink);
 
             $parameters = array();
 

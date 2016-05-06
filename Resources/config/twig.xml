@@ -10,7 +10,6 @@
 
             <argument type="service" id="router" />
             <argument type="service" id="sonata.classification.manager.tag" />
-            <argument type="service" id="brother.comment.blog" />
         </service>
 
         <service id="brother.comment.status.comment" class="Brother\CommentBundle\Status\CommentStatusRenderer">

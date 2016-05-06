@@ -54,7 +54,6 @@ class PostController extends Controller
 
         $parameters = array_merge(array(
             'pager'            => $pager,
-            'blog'             => $this->getBlog(),
             'tag'              => false,
             'collection'       => false,
             'route'            => $request->get('_route'),
@@ -179,7 +178,6 @@ class PostController extends Controller
                 ->setTitle($post->getTitle())
                 ->addMeta('name', 'description', $post->getAbstract())
                 ->addMeta('property', 'og:title', $post->getTitle())
-                ->addMeta('property', 'og:type', 'blog')
                 ->addMeta('property', 'og:url', $this->generateUrl('sonata_news_view', array(
                     'permalink'  => $this->getBlog()->getPermalinkGenerator()->generate($post, true),
                 ), UrlGeneratorInterface::ABSOLUTE_URL))
@@ -189,8 +187,7 @@ class PostController extends Controller
 
         return $this->render('BrotherCommentBundle:Post:view.html.twig', array(
             'post' => $post,
-            'form' => false,
-            'blog' => $this->getBlog(),
+            'form' => false
         ));
     }
 
@@ -322,14 +319,6 @@ class PostController extends Controller
     protected function getCommentManager()
     {
         return $this->get('brother.comment.manager.comment');
-    }
-
-    /**
-     * @return BlogInterface
-     */
-    protected function getBlog()
-    {
-        return $this->get('brother.comment.blog');
     }
 
     /**

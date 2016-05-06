@@ -45,20 +45,14 @@ class Mailer implements MailerInterface
     protected $mailer;
 
     /**
-     * @var BlogInterface
-     */
-    protected $blog;
-
-    /**
      * @param \Swift_Mailer          $mailer
      * @param HashGeneratorInterface $generator
      * @param RouterInterface        $router
      * @param EngineInterface        $templating
      * @param array                  $emails
      */
-    public function __construct($mailer, BlogInterface $blog, HashGeneratorInterface $generator, RouterInterface $router, EngineInterface $templating, array $emails)
+    public function __construct($mailer, HashGeneratorInterface $generator, RouterInterface $router, EngineInterface $templating, array $emails)
     {
-        $this->blog          = $blog;
         $this->mailer        = $mailer;
         $this->hashGenerator = $generator;
         $this->router        = $router;
@@ -75,7 +69,6 @@ class Mailer implements MailerInterface
             'comment' => $comment,
             'post'    => $comment->getPost(),
             'hash'    => $this->hashGenerator->generate($comment),
-            'blog'    => $this->blog,
         ));
 
         $this->sendEmailMessage($rendered, $this->emails['notification']['from'], $this->emails['notification']['emails']);

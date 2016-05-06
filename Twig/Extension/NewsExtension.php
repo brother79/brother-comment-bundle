@@ -13,7 +13,6 @@ namespace Brother\CommentBundle\Twig\Extension;
 
 use Sonata\ClassificationBundle\Model\TagManagerInterface;
 use Sonata\CoreBundle\Model\ManagerInterface;
-use Brother\CommentBundle\Model\BlogInterface;
 use Brother\CommentBundle\Model\PostInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
@@ -38,9 +37,8 @@ class NewsExtension extends \Twig_Extension implements \Twig_Extension_InitRunti
     /**
      * @param RouterInterface  $router
      * @param ManagerInterface $tagManager
-     * @param BlogInterface    $blog
      */
-    public function __construct(RouterInterface $router, ManagerInterface $tagManager, BlogInterface $blog)
+    public function __construct(RouterInterface $router, ManagerInterface $tagManager)
     {
         if (!$tagManager instanceof TagManagerInterface) {
             @trigger_error('Calling the '.__METHOD__.' method with a Sonata\CoreBundle\Model\ManagerInterface is deprecated since version 2.4 and will be removed in 3.0. Use the new signature with a Sonata\ClassificationBundle\Model\TagManagerInterface instead.', E_USER_DEPRECATED);
@@ -48,7 +46,6 @@ class NewsExtension extends \Twig_Extension implements \Twig_Extension_InitRunti
 
         $this->router     = $router;
         $this->tagManager = $tagManager;
-        $this->blog       = $blog;
     }
 
     /**
@@ -91,7 +88,6 @@ class NewsExtension extends \Twig_Extension implements \Twig_Extension_InitRunti
         foreach ($this->tagManager->findBy(array('enabled' => true)) as $tag) {
             $rss[] = sprintf('<link href="%s" title="%s : %s" type="application/rss+xml" rel="alternate" />',
                 $this->router->generate('sonata_news_tag', array('tag' => $tag->getSlug(), '_format' => 'rss'), UrlGeneratorInterface::ABSOLUTE_URL),
-                $this->blog->getTitle(),
                 $tag->getName()
             );
         }
@@ -99,13 +95,4 @@ class NewsExtension extends \Twig_Extension implements \Twig_Extension_InitRunti
         return implode("\n", $rss);
     }
 
-    /**
-     * @param PostInterface $post
-     *
-     * @return string|Exception
-     */
-    public function generatePermalink(PostInterface $post)
-    {
-        return $this->blog->getPermalinkGenerator()->generate($post);
-    }
 }

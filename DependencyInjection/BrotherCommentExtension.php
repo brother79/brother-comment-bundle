@@ -78,18 +78,11 @@ class BrotherCommentExtension extends Extension
 
         $container->setAlias('brother.comment.permalink.generator', $config['permalink_generator']);
 
-        $container->setDefinition('brother.comment.blog', new Definition('Brother\CommentBundle\Model\Blog', array(
-            $config['title'],
-            $config['link'],
-            $config['description'],
-            new Reference('brother.comment.permalink.generator'),
-        )));
-
         $container->getDefinition('brother.comment.hash.generator')
             ->replaceArgument(0, $config['salt']);
 
         $container->getDefinition('brother.comment.mailer')
-            ->replaceArgument(5, array(
+            ->replaceArgument(4, array(
                 'notification' => $config['comment']['notification'],
             ));
 

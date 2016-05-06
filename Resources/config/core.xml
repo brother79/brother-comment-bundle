@@ -20,7 +20,6 @@
 
         <service id="brother.comment.mailer" class="Brother\CommentBundle\Mailer\Mailer">
             <argument type="service" id="mailer" />
-            <argument type="service" id="brother.comment.blog" />
             <argument type="service" id="brother.comment.hash.generator" />
             <argument type="service" id="router" />
             <argument type="service" id="templating" />
